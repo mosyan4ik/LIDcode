@@ -1,0 +1,239 @@
+html,
+.body {
+  height: 100%;
+  box-sizing: border-box;
+  font-family: Consolas, Arial, sans-serif;
+  font-size: 1.2em;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  color: black;
+}
+.header {
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: white;
+  height: 64px;
+  z-index: 2;
+  width: 100vw;
+  max-width: 100%;
+  box-shadow: 0 5px 20px rgb(60, 60, 60, 0.25);
+}
+.header-navigation {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+}
+.header-navigation__logo {
+  display: block;
+}
+.header-navigation__item {
+  margin-top: 10px;
+  color: black;
+  font-weight: 900;
+  font-size: 1.1em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color ease-out 0.3s;
+}
+.header-navigation__item:hover {
+  color: rgb(60, 60, 60, 0.8);
+}
+.footer {
+  flex-shrink: 0;
+  background-color: rgb(60, 60, 60, 0.8);
+  height: 60px;
+  max-width: 100%;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.main {
+  flex-grow: 1;
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+  background-color: rgb(154, 157, 165, 0.2);
+  margin-top: 58px;
+}
+.main-wrapper {
+  margin: 40px 0 40px;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.registr {
+  max-width: 600px;
+}
+.main-title {
+  margin: 0 0 10px;
+  font-size: 2em;
+  font-weight: 600;
+  margin-top: 0;
+}
+.main-content {
+  padding: 28px;
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: inset 0 0 28px 5px rgb(154, 157, 165, 0.15),
+    0 0 5px rgb(255, 255, 255, 1);
+}
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+  border-bottom: 3px solid black;
+}
+.card_info {
+  margin-left: 20px;
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-direction: column;
+}
+.card_img {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.img {
+  height: 350px;
+  width: 350px;
+  border-radius: 8px;
+}
+.img_org {
+  max-width: 100px;
+  max-height: 100px;
+  margin-right: 10px;
+}
+.button {
+  margin: 15px 0 15px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 95%;
+  height: 50px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgb(154, 157, 165);
+  transition: background-color ease-out 0.3s;
+  color: rgb(0, 0, 0, 0.8);
+  font-weight: 600;
+  text-decoration: none;
+  font-style: oblique;
+  font-size: 1.25em;
+  background: none;
+  border: none;
+}
+.button_reg {
+  width: 60%;
+}
+.button:hover {
+  background-color: rgb(154, 157, 165, 0.2);
+}
+.card_name {
+  cursor: pointer;
+  text-decoration: none;
+  font-style: oblique;
+  color: #000;
+  font-size: 1.3em;
+  font-weight: 900;
+  transition: color ease-out 0.3s;
+}
+.card_name:hover {
+  color: rgb(60, 60, 60, 0.8);
+}
+.info__p {
+  margin: 5px 0 0 10px;
+}
+.info__h2 {
+  margin: 0;
+  margin-top: 10px;
+  font-size: 1.3em;
+  font-weight: 600;
+}
+.card_description {
+  margin: 5px 25px 0 15px;
+  font-size: 1.4em;
+  font-weight: 300;
+  text-align: justify;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(60, 60, 60, 0.4);
+  border-radius: 10px;
+}
+.section {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+.section-title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.section-title_info {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.section_materials {
+  display: flex;
+  align-items: center;
+  color: black;
+  font-weight: 900;
+  font-size: 1.1em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color ease-out 0.3s;
+}
+.section_materials:hover {
+  color: rgb(60, 60, 60, 0.8);
+}
+.section_info {
+  margin: 5px 30px 0 25px;
+  font-size: 1.4em;
+  font-weight: 300;
+  text-align: left;
+}
+.reg_form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.ul_organizers {
+  list-style: none;
+}
+.ul_organizers li {
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
