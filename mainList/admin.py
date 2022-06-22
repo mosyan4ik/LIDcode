@@ -1,13 +1,14 @@
 from django.contrib import admin
-from .models import Event, Organizers, Sponsors
+from .models import *
 # Register your models here.
 
 class EventAdmin(admin.ModelAdmin):
-    list_display = ('name', 'status', 'timetable')
+    list_display = ('name', 'status')
     list_display_links = ('name',)
     search_fields = ('name',)
-    list_editable = ('status',)
-    list_filter = ('status',)
+    filter_horizontal = ['sponsors', 'organizers']
+    # list_editable = ('id',)
+    # list_filter = ('id',)
 
 class OrganizersAdmin(admin.ModelAdmin):
     list_display = ('name',)
@@ -23,3 +24,5 @@ class SponsorsAdmin(admin.ModelAdmin):
 admin.site.register(Event, EventAdmin)
 admin.site.register(Organizers, OrganizersAdmin)
 admin.site.register(Sponsors, SponsorsAdmin)
+admin.site.register(Participant)
+admin.site.register(Team)
