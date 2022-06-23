@@ -20,6 +20,16 @@ class SponsorsAdmin(admin.ModelAdmin):
     list_display_links = ('name',)
     search_fields = ('name',)
 
+class ParticipantAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    list_display_links = ('name',)
+    search_fields = ('name', 'id')
+
+class TeamAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    list_display_links = ('name',)
+    search_fields = ('name', 'id')
+
 
 admin.site.register(Event, EventAdmin)
 admin.site.register(Organizers, OrganizersAdmin)
