@@ -5,7 +5,9 @@
 
             <main class="main">
             <div class="main-wrapper">
-              <h1 class="main-title">{{ title }}</h1>
+              <div class="wrapper_title">
+                <h1 class="main-title">{{ title }}</h1>
+              </div>
               <div class="main-content">
                   {% for itm in dat %}
                   {% if itm.status not in viw %}
@@ -35,13 +37,13 @@
                                 {% endif %}
 
                         <h2 class="info__h2">Описание:</h2>
-                        <h3 class="card_description">
+                        <div class="card_description">
                             {{ itm.description|linebreaks|truncatewords:100 }}
-                        </h3>
+                        </div>
                     </div>
                     <div class="card_img">
                     <a href="{{ itm.get_absolute_url }}"
-                      ><img class="img" src="{{ itm.image }}" alt="Название соревнования"
+                      ><img class="img" src="{{ itm.image }}" alt="{{ itm.name }}"
                     /></a>
                     <a class="button" href="{{ itm.get_absolute_url }}">Подробнее...</a>
                   </div>

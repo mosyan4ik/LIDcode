@@ -10,7 +10,7 @@ from django.db import models
 # Create your models here.
 from django.db import models
 from django.contrib.postgres.fields import CITextField
-from django.db.models import IntegerField, PositiveIntegerField, ManyToManyField, ForeignKey
+from django.db.models import IntegerField, PositiveIntegerField, ManyToManyField, ForeignKey, EmailField
 from django.urls import reverse
 
 
@@ -55,9 +55,14 @@ class Event(models.Model):
                                  verbose_name='Организаторы')
     sponsors = ManyToManyField("Sponsors", blank=True,  related_name="my_sponsors", verbose_name='Спонсоры')
 
+    def getrange(self):
+        return (range(1, int(str(self.numberofparticipants))+1))
+
     def get_absolute_url(self):
         return reverse('event', kwargs={'event_id': self.pk})
 
+    def get_registration_url(self):
+        return reverse('registrations', kwargs={'event_id': self.pk})
 
     def now_time_comparison_date_register(self):
         if self.date_register:
@@ -153,14 +158,27 @@ def Sponsors_delete(sender, instance, **kwargs):
 class Team(models.Model):
     name = CITextField(verbose_name="Наименование команды")
     teamMembers = ManyToManyField("Participant")
-    coach = ForeignKey("Participant", on_delete=models.PROTECT, default=1, related_name="my_coach")
-    contactPerson = ForeignKey("Participant", on_delete=models.PROTECT, default=1, related_name="my_contactPerson")
+    coach = ForeignKey('Participant', on_delete=models.PROTECT, default=1, related_name='my_coach')
+    contactPerson = ForeignKey('Participant', on_delete=models.PROTECT, default=1, related_name='my_contactPerson')
+
+    class Meta:
+        managed = False
+        # db_table = 'team'
+        verbose_name = 'Команда'
+        verbose_name_plural = 'Команды'
+        ordering = ['name']
 
 class Participant(models.Model):
     name = CITextField(verbose_name="ФИО")
-    emailadress = CITextField(verbose_name="Электронная почта")
+    emailadress = EmailField(verbose_name="Электронная почта")
     phonenumber = CITextField(verbose_name="Номер телефона")
     organization = CITextField(verbose_name="Организация")
-    university = CITextField(blank=True, null=True, verbose_name="Университет")
     university_faculty = CITextField(blank=True, null=True, verbose_name="Факультет")
     university_course = CITextField(blank=True, null=True, verbose_name="Курс")
+
+    class Meta:
+        managed = False
+        db_table = 'participant'
+        verbose_name = 'Участник'
+        verbose_name_plural = 'Участники'
+        ordering = ['name']

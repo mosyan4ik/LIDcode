@@ -2,10 +2,10 @@
 {% block main %}
 <main class="main">
         <div class="main-wrapper">
-          <h1 class="main-title">{{obj.name}}</h1>
           <div class="main-content">
+            <h1 class="main-title">{{obj.name}}</h1>
             <section class="section-title">
-              <img class="img" src="../../{{obj.image}}" alt="Название соревнования" />
+              <img class="img" src="../../{{obj.image}}" alt="{{obj.name}}" />
               <div class="section-title_info">
                 <p class="info__p">
                   {% if obj.numberofparticipants > 1 %}
@@ -35,33 +35,44 @@
                                     <p class="info__p">Соревнование завершилось {{ obj.date_end|date:"D d M Y" }} {{ obj.date_end|time:"H:i" }}</p>
                                 {% endif %}
                   {% if obj.check_registrate %}
-                        <a class="button" href="./index3.html">Регистрация на участие</a>
+                        <a class="button button_reg" href="{{ obj.get_registration_url }}">Регистрация на участие</a>
                   {% endif %}
               </div>
             </section>
             <section>
               <h2 class="info__h2">Описание:</h2>
-              <h3 class="section_info">
+              <div class="section_info">
                 {{ obj.description|linebreaks }}
-              </h3>
+              </div>
             </section>
             <section>
               <h2 class="info__h2">Правила:</h2>
-              <h3 class="section_info">
+              <div class="section_info">
                 {{ obj.regulations|linebreaks }}
-              </h3>
+              </div>
             </section>
             <section>
               <h2 class="info__h2">Расписание:</h2>
-              <h3 class="section_info">
-                  Открытие регистрации: {{ obj.date_register }}<br>
-                  Закрытие регистрации: {{ obj.date_closeRegister }}<br>
-                  Начало соревнования:  {{ obj.date_start}}<br>
-                  Завершение соревнования: {{ obj.date_end }}<br>
+              <div class="section">
+                <div>
+                  <div class="section_info">Открытие регистрации:</div>
+                  <div class="section_info">Завершение регистрации:</div>
+                  <div class="section_info">Старт соревнований:</div>
+                  <div class="section_info">Завершение соревнований:</div>
                   {% if obj.timePublicationAdditionalMaterial %}
-                  Дополнительные материалы будут опубликованы {{obj.timePublicationAdditionalMaterial}}<br>
+                  <div class="section_info">Дополнительные материалы будут опубликованы:</div>
                   {%endif%}
-              </h3>
+                </div>
+                <div class="item_margin">
+                  <div class="section_info">{{ obj.date_register }}</div>
+                  <div class="section_info">{{ obj.date_closeRegister }}</div>
+                  <div class="section_info">{{ obj.date_start}}</div>
+                  <div class="section_info">{{ obj.date_end }}</div>
+                  {% if obj.timePublicationAdditionalMaterial %}
+                  <div class="section_info">{{obj.timePublicationAdditionalMaterial}}</div>
+                  {%endif%}
+                </div>
+              </div>
             </section>
             <section>
                 <h2 class="info__h2">Дополнительные материалы</h2>
@@ -81,7 +92,7 @@
                     <h3 class="section_info">Дополнительные материалы не предусмотрены</h3>
                 {% endif %}
             </section>
-               <section>
+               <section class="section-org">
 
               <div class="section">
 
