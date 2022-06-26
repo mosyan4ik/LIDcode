@@ -16,7 +16,7 @@
                     Ошибка
                     {%endif%} |
                     Зарегистрировано команд
-                    x/{{obj.numberComands}}
+                    {{obj.getParticipant}}/{{obj.numberComands}}
                 </p>
                         <!-- Время регистрации не пришло -->
                                 {% if not obj.now_time_comparison_date_register %}
@@ -34,8 +34,10 @@
                                 {% else %}
                                     <p class="info__p">Соревнование завершилось {{ obj.date_end|date:"D d M Y" }} {{ obj.date_end|time:"H:i" }}</p>
                                 {% endif %}
-                  {% if obj.check_registrate %}
+                  {% if obj.check_registrate and obj.numberofparticipants == 1 %}
                         <a class="button button_reg" href="{{ obj.get_registration_url }}">Регистрация на участие</a>
+                  {% elif obj.check_registrate and obj.numberofparticipants != 1 %}
+                        <a class="button button_reg" href="{{ obj.get_final_registrations_url }}">Регистрация на участие</a>
                   {% endif %}
               </div>
             </section>

@@ -3,140 +3,26 @@
 {% block main %}
   <main class="main">
         <div class="main-wrapper registr">
-    {% if obj.numberofparticipants == 1 %}
           <h1 class="main-title">Регистрация</h1>
           <div class="main-content">
             <form class="reg_form" action="{{ obj.get_registration_url }}" method="post" >
-              {% csrf_token %}
+                {% csrf_token %}
                 <span>{{ form.non_field_errors }}</span>
                 {% for f in form %}
                   <div class="reg_form__item">
                     <img class="img_input" src="{% static 'mainList/images/mini_logo.png' %}" alt="Картинка" />
-                        {{f}}
+                    {{f}}
                   </div>
                 {% endfor %}
-              <button class="button" type="submit" >
+                <button class="button" type="submit" >
                   Отправить заявку на участие
-              </button>
+                </button>
             </form>
           </div>
-    {% else %}
-        <h1 class="main-title">Регистрация</h1>
-          <div class="main-content">
-<!--            <form class="from_reg" action="{{ obj.get_registration_url }}" method="post" >-->
-<!--              <div class="reg_form__item item_margin">-->
-<!--                <img-->
-<!--                  class="img_input"-->
-<!--                  src="{% static 'mainList/images/team.png' %}"-->
-<!--                  alt="Название команды"-->
-<!--                />-->
-<!--                <input-->
-<!--                  class="input_text"-->
-<!--                  type="text"-->
-<!--                  placeholder="Название команды*"-->
-<!--                />-->
-<!--              </div>-->
-<!--              <div class="wrapper_party">-->
-<!--                <h2 class="checkbox_h2">Участник 1:</h2>-->
-<!--                <div class="checkbox_item">-->
-<!--                  <input type="checkbox" />-->
-<!--                  <p class="checkbox_p">Контактное лицо</p>-->
-<!--                </div>-->
-<!--                <div class="checkbox_item">-->
-<!--                  <input type="checkbox" />-->
-<!--                  <p class="checkbox_p">Тренер</p>-->
-<!--                </div>-->
-                {% for part in obj.getrange %}
-                    <h2 class="checkbox_h2">Участник {{part}}:</h2>
-                    <form class="from_reg" action="{{ obj.get_registration_url }}" method="post" >
-                        <div class="wrapper_party">
-                            {% for f in form %}
-                                <div class="reg_form__item item_margin">
-                                <img class="img_input" src="{% static 'mainList/images/mini_logo.png' %}" alt="Картинки" />
-                                  {{ f }}
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </form>
-                {% endfor %}
-<!--                <div class="checkbox_item">-->
-<!--                  <input type="checkbox" />-->
-<!--                  <p class="checkbox_p">Контактное лицо</p>-->
-<!--                </div>-->
-<!--                <div class="checkbox_item">-->
-<!--                  <input type="checkbox" />-->
-<!--                  <p class="checkbox_p">Тренер</p>-->
-<!--                </div>-->
-<!--                <div class="reg_form__item item_margin">-->
-<!--                  <img class="img_input" src="./name.png" alt="Фамилия" />-->
-<!--                  <input-->
-<!--                    class="input_text"-->
-<!--                    type="text"-->
-<!--                    placeholder="Фамилия*"-->
-<!--                  />-->
-<!--                </div>-->
-<!--                <div class="reg_form__item item_margin">-->
-<!--                  <img class="img_input" src="./name.png" alt="Фамилия" />-->
-<!--                  <input class="input_text" type="text" placeholder="Имя*" />-->
-<!--                </div>-->
-<!--                <div class="reg_form__item item_margin">-->
-<!--                  <img class="img_input" src="./name.png" alt="Отчество" />-->
-<!--                  <input-->
-<!--                    class="input_text"-->
-<!--                    type="text"-->
-<!--                    placeholder="Отчество*"-->
-<!--                  />-->
-<!--                </div>-->
-<!--                <div class="reg_form__item item_margin">-->
-<!--                  <img class="img_input" src="./email.png" alt="Email" />-->
-<!--                  <input class="input_text" type="text" placeholder="Email*" />-->
-<!--                </div>-->
-<!--                <div class="reg_form__item item_margin">-->
-<!--                  <img class="img_input" src="./telephone.png" alt="Телефон" />-->
-<!--                  <input-->
-<!--                    class="input_text"-->
-<!--                    type="text"-->
-<!--                    placeholder="Телефон*"-->
-<!--                  />-->
-<!--                </div>-->
-<!--                <div class="reg_form__item item_margin">-->
-<!--                  <img-->
-<!--                    class="img_input"-->
-<!--                    src="./organization.png"-->
-<!--                    alt="Организация"-->
-<!--                  />-->
-<!--                  <input-->
-<!--                    class="input_text"-->
-<!--                    type="text"-->
-<!--                    placeholder="Организация*"-->
-<!--                  />-->
-<!--                </div>-->
-<!--                <div class="reg_form__item item_margin">-->
-<!--                  <img class="img_input" src="./faculty.png" alt="Факультет" />-->
-<!--                  <input-->
-<!--                    class="input_text"-->
-<!--                    type="text"-->
-<!--                    placeholder="Факультет"-->
-<!--                  />-->
-<!--                </div>-->
-<!--                <div class="reg_form__item item_margin">-->
-<!--                  <img class="img_input" src="./course.png" alt="Курс" />-->
-<!--                  <input class="input_text" type="text" placeholder="Курс" />-->
-<!--                </div>-->
-<!--              </div>-->
-              <a class="button" href="./index3.html">
-                Далее
-              </a>
-<!--              <a class="button" href="./index3.html">-->
-<!--                Отправить заявку на участие-->
-<!--              </a>-->
-<!--            </form>-->
-          </div>
-    {% endif %}
-
         </div>
-      </main>
+  </main>
 {% endblock %}
+
 
 
 

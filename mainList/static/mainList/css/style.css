@@ -254,6 +254,11 @@ width:100%
   width: 30px;
   height: 18px;
 }
+
+.mmrg{
+    margin-bottom:20px;
+}
+
 .reg_form__item {
   display: flex;
   align-items: center;

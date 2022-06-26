@@ -7,4 +7,5 @@ urlpatterns = [
     path('finished', finished, name='finished'),
     path('post/<int:event_id>/', show_event, name='event'),
     path('post/registrations_<int:event_id>/', registrationForm, name='registrations'),
+    path('post/final_registrations_<int:event_id>/', registrationEnd, name='final_registrations')
 ]

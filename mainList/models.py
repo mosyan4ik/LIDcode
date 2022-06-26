@@ -1,11 +1,7 @@
-from django.db.models.signals import pre_delete, post_delete
-from django.dispatch import receiver
 from django.utils import timezone
-import datetime
 import re
 
 from django.core.validators import MinValueValidator, MaxValueValidator
-from django.db import models
 
 # Create your models here.
 from django.db import models
@@ -55,6 +51,12 @@ class Event(models.Model):
                                  verbose_name='Организаторы')
     sponsors = ManyToManyField("Sponsors", blank=True,  related_name="my_sponsors", verbose_name='Спонсоры')
 
+    participants = ManyToManyField("Team", blank=True, related_name="my_participants",
+                                   verbose_name='Участвующие команды')
+
+    def getParticipant(self):
+        return Team.objects.filter(my_event=self.pk).filter(approvement='approved').count()
+
     def getrange(self):
         return (range(1, int(str(self.numberofparticipants))+1))
 
@@ -64,28 +66,43 @@ class Event(models.Model):
     def get_registration_url(self):
         return reverse('registrations', kwargs={'event_id': self.pk})
 
+    def get_final_registrations_url(self):
+        return reverse('final_registrations', kwargs={'event_id': self.pk})
+
     def now_time_comparison_date_register(self):
         if self.date_register:
+            if self.date_register < timezone.now():
+                self.status = 'openRegistration'
+            else:
+                self.status = 'announcement'
             return self.date_register < timezone.now()
         return False
 
     def now_time_comparison_date_closeRegister(self):
         if self.date_closeRegister:
+            if self.date_closeRegister < timezone.now():
+                self.status = 'closeRegistration'
             return self.date_closeRegister < timezone.now()
         return False
 
     def now_time_comparison_date_start(self):
         if self.date_start:
+            if self.date_start < timezone.now():
+                self.status = 'startCompetition'
             return self.date_start < timezone.now()
         return False
 
     def now_time_comparison_date_end(self):
         if self.date_end:
+            if self.date_end < timezone.now():
+                self.status = 'endCompetition'
             return self.date_end < timezone.now()
         return False
 
     def now_time_comparison_timePublicationAdditionalMaterial(self):
         if self.timePublicationAdditionalMaterial:
+            if self.timePublicationAdditionalMaterial < timezone.now():
+                self.status = 'publicationExtraMaterials'
             return self.timePublicationAdditionalMaterial < timezone.now()
         return False
 
@@ -102,6 +119,9 @@ class Event(models.Model):
             return (self.date_register < timezone.now()) and (timezone.now() < self.date_closeRegister)
         return False
 
+    def __str__(self):
+        return f'{self.name}'
+
     class Meta:
         managed = False
         db_table = 'event'
@@ -110,9 +130,6 @@ class Event(models.Model):
         ordering = ['name']
 
 
-@receiver(pre_delete, sender=Event)
-def Event_delete(sender, instance, **kwargs):
-    instance.image.delete(False)
 
 
 class Organizers(models.Model):
@@ -131,9 +148,7 @@ class Organizers(models.Model):
         ordering = ['name']
 
 
-@receiver(pre_delete, sender=Organizers)
-def Organizers_delete(sender, instance, **kwargs):
-    instance.image.delete(False)
+
 
 
 class Sponsors(models.Model):
@@ -151,22 +166,33 @@ class Sponsors(models.Model):
         verbose_name_plural = 'Спонсоры'
         ordering = ['name']
 
-@receiver(pre_delete, sender=Sponsors)
-def Sponsors_delete(sender, instance, **kwargs):
-    instance.image.delete(False)
+
 
 class Team(models.Model):
+    answer = (
+        ('hold', 'Ожидает'),
+        ('rejected', 'Отклонено'),
+        ('approved', 'Принято'),
+    )
+
     name = CITextField(verbose_name="Наименование команды")
     teamMembers = ManyToManyField("Participant")
     coach = ForeignKey('Participant', on_delete=models.PROTECT, default=1, related_name='my_coach')
     contactPerson = ForeignKey('Participant', on_delete=models.PROTECT, default=1, related_name='my_contactPerson')
+    approvement = CITextField(null=False, blank=False, default='hold', choices=answer, verbose_name='Статус заявки')
+    my_event = ForeignKey('Event', on_delete=models.CASCADE, related_name='my_event',  verbose_name='Соревнование')
+
+    def __str__(self):
+        return f'{self.name}'
+
 
     class Meta:
         managed = False
-        # db_table = 'team'
+        db_table = 'team'
         verbose_name = 'Команда'
         verbose_name_plural = 'Команды'
         ordering = ['name']
+
 
 class Participant(models.Model):
     name = CITextField(verbose_name="ФИО")
@@ -175,6 +201,10 @@ class Participant(models.Model):
     organization = CITextField(verbose_name="Организация")
     university_faculty = CITextField(blank=True, null=True, verbose_name="Факультет")
     university_course = CITextField(blank=True, null=True, verbose_name="Курс")
+    iscoach = models.BooleanField(blank=True, null=True, verbose_name="Тренер")
+    iscontactFace = models.BooleanField(blank=True, null=True, verbose_name="Контактное лицо")
+    def __str__(self):
+        return f'{self.name}'
 
     class Meta:
         managed = False
