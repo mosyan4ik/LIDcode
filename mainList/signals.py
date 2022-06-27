@@ -1,11 +1,15 @@
 import datetime
+import sys
 import time
 
 from django.db.models.signals import pre_save, pre_delete
 from django.dispatch import receiver
 
-from LIDcodeSite import settings
+# from LIDcodeSite.LIDcodeSite import settings
+# from LIDcodeSite import settings
+from LIDcodeSite import *
 from .models import *
+
 from django.core.mail import send_mail
 
 
@@ -34,6 +38,9 @@ def pre_save_Team(sender, instance, **kwargs):
     if instance.approvement == 'hold':
         pass
     elif instance.approvement == 'rejected':
+        eve = Event.objects.get(pk=instance.my_event.pk)
+        if eve.participants.contains(instance):
+            eve.participants.remove(instance)
         send(str(instance.contactPerson.emailadress), instance.my_event, "отклонена администратором")
 
     elif instance.approvement == 'approved':

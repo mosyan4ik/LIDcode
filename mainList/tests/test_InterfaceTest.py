@@ -1,19 +1,22 @@
-from django.db.models import QuerySet
+import os
+import time
+
 from django.test import TestCase
-from django.urls import reverse
+import django
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "LIDcodeSite.LIDcodeSite.settings")
+django.setup()
 from selenium import webdriver
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
-from django.contrib.postgres.fields import CITextField
 import unittest
-
 from mainList.models import *
 
 driver = webdriver.Chrome(
     executable_path=r'G:\py_Django_proj\courseWork\LIDcodeSite\mainList\chromedriver\chromedriver.exe')
 
 
-class Admin_test_case(TestCase):
+class InterfaceTest(TestCase):
 
     def test_z(self):
         driver.close()
@@ -38,11 +41,12 @@ class Admin_test_case(TestCase):
         adminString = driver.find_element(by=By.XPATH, value="//*[@id='user-tools']/strong")
         self.assertTrue('ADMIN', adminString)
 
-    def test_navigation(self):
+    def test_navigationMainList(self):
         driver.get(self.url)
         title_name_list = driver.find_element(by=By.CLASS_NAME, value='main-title')
         self.assertTrue('Доступные соревнования', title_name_list)
 
+    def test_navigationFinishedList(self):
         driver.get(self.finished)
         title_name_list = driver.find_element(by=By.CLASS_NAME, value='main-title')
         self.assertTrue('Завершенные соревнования', title_name_list)
@@ -73,7 +77,7 @@ class Admin_test_case(TestCase):
         titleSELFEvent = driver.find_element(by=By.CLASS_NAME, value='main-title')
         self.assertTrue(f'{titleEvent_text}', titleSELFEvent)
 
-    def test_urlShowList(self):
+    def test_urlShowList_MainList(self):
         driver.get(self.url)
         titleEvent = driver.find_element(by=By.CLASS_NAME, value='card_name')
         titleEvent.click()
@@ -82,6 +86,7 @@ class Admin_test_case(TestCase):
         title_name_list = driver.find_element(by=By.CLASS_NAME, value='main-title')
         self.assertTrue('Доступные соревнования', title_name_list)
 
+    def test_urlShowList_FinishedList(self):
         driver.get(self.url)
         titleEvent = driver.find_element(by=By.CLASS_NAME, value='card_name')
         titleEvent.click()
@@ -97,25 +102,26 @@ class Admin_test_case(TestCase):
 
         info__p = driver.find_element(by=By.CLASS_NAME, value='info__p')
         info__p_TEXT = info__p.text
-        try:
-            if "Индивидуальное участие" in info__p_TEXT:
-                regBut = driver.find_element(by=By.CLASS_NAME, value='button_reg')
-                regBut.click()
-                reg_form = driver.find_elements(by=By.CLASS_NAME, value='reg_form')
-                self.assertTrue(1, len(reg_form))
-            elif "Командное участие" in info__p_TEXT:
-                info__p_TEXT = info__p_TEXT.split('|')[0]
-                my_string = [info__p_TEXT[i] for i in range(len(info__p_TEXT)) if info__p_TEXT[i].isdigit()]
-                my_string = ''.join(my_string)
-                num = int(my_string)
-
-                regBut = driver.find_element(by=By.CLASS_NAME, value='button_reg')
-                regBut.click()
-
-                reg_form = driver.find_elements(by=By.CLASS_NAME, value='input_text')
-                self.assertTrue(num * 6, len(reg_form))
-        except:
-            pass
+        if "Индивидуальное участие" in info__p_TEXT:
+            regBut = driver.find_elements(by=By.CLASS_NAME, value='button_reg')
+            if len(regBut) != 0:
+                regBut[0].click()
+            else:
+                return
+            reg_form = driver.find_elements(by=By.CLASS_NAME, value='reg_form')
+            self.assertTrue(1, len(reg_form))
+        elif "Командное участие" in info__p_TEXT:
+            info__p_TEXT = info__p_TEXT.split('|')[0]
+            my_string = [info__p_TEXT[i] for i in range(len(info__p_TEXT)) if info__p_TEXT[i].isdigit()]
+            my_string = ''.join(my_string)
+            num = int(my_string)
+            regBut = driver.find_elements(by=By.CLASS_NAME, value='button_reg')
+            if len(regBut) != 0:
+                regBut[0].click()
+            else:
+                return
+            reg_form = driver.find_elements(by=By.CLASS_NAME, value='input_text')
+            self.assertTrue(num * 6, len(reg_form))
 
     def test_registagionURL(self):
         driver.get(self.url)
@@ -126,8 +132,11 @@ class Admin_test_case(TestCase):
         info__p_TEXT = info__p.text
 
         if "Индивидуальное участие" in info__p_TEXT:
-            regBut = driver.find_element(by=By.CLASS_NAME, value='button_reg')
-            regBut.click()
+            regBut = driver.find_elements(by=By.CLASS_NAME, value='button_reg')
+            if len(regBut) != 0:
+                regBut[0].click()
+            else:
+                return
             # reg_form = driver.find_elements(by=By.CLASS_NAME, value='reg_form')
             name = driver.find_element(by=By.NAME, value='name')
             email = driver.find_element(by=By.NAME, value='emailadress')
@@ -151,8 +160,11 @@ class Admin_test_case(TestCase):
             my_string = ''.join(my_string)
             num = int(my_string)
 
-            regBut = driver.find_element(by=By.CLASS_NAME, value='button_reg')
-            regBut.click()
+            regBut = driver.find_elements(by=By.CLASS_NAME, value='button_reg')
+            if len(regBut) != 0:
+                regBut[0].click()
+            else:
+                return
 
             reg_form = driver.find_elements(by=By.CLASS_NAME, value='input_text')
 
@@ -169,33 +181,11 @@ class Admin_test_case(TestCase):
                 phonenumber.send_keys(f'+7920965993{i}')
                 organization.send_keys(f'BoysClub{i}')
 
-    def test_modelTeam(self):
+            btn = driver.find_element(by=By.CLASS_NAME, value='button')
+            btn.click()
 
-        eve = Event.objects.create(name='Соревнование',
-                                   status='announcement',
-                                   numberofparticipants=1,
-                                   numberComands=10,
-                                   regulations='Правила',
-                                   results="Результаты",
-                                   materials="Материалы",
-                                   image="images/2022/06/26/events/Кубок.jpg")
-
-        pp1 = Participant.objects.create(name='Иван',
-                                  emailadress='mosyan25@mail.ru',
-                                  phonenumber='+79209659933',
-                                  organization='М.Видео')
-
-        pp2 = Participant.objects.create(name='Артем',
-                                  emailadress='mosyan25@mail.ru',
-                                  phonenumber='+79209667733',
-                                  organization='DNS')
-
-        Team.objects.create(name='Одуванчик',
-                            teamMembers=QuerySet().objects.add(pp1).add(pp2),
-                            coach=pp1,
-                            contactPerson=pp2,
-                            my_event=eve)
-
+            title_name_list = driver.find_element(by=By.CLASS_NAME, value='main-title')
+            self.assertTrue('Доступные соревнования', title_name_list)
 
 
 if __name__ == '__main__':

@@ -54,6 +54,18 @@
               </div>
             </section>
             <section>
+              <h2 class="info__h2">Материалы:</h2>
+                {% autoescape off %}
+              <div class="section_info">
+                  {% if obj.materials %}
+                        {{ obj.editLinkMaterial|linebreaks }}
+                  {% else %}
+                        Материалы не предусмотрены
+                  {% endif %}
+              </div>
+                {% endautoescape %}
+            </section>
+            <section>
               <h2 class="info__h2">Расписание:</h2>
               <div class="section">
                 <div>

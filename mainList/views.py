@@ -1,5 +1,5 @@
 from django.forms import modelformset_factory
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from .forms import *
 from .signals import send
 
@@ -79,24 +79,35 @@ def registrationEnd(request, event_id):
         formset = registrationsFormSet(request.POST or None, queryset=qs)
 
         if form.is_valid() and formset.is_valid():
-            team = form.save()
+            team = form.save(commit=False)
+            team.my_event = obj
+            # team.save()
+            members = []
             for member_form in formset:
                 team_member = member_form.save()
-                team.teamMembers.add(team_member)
-                if team_member.iscoach:
-                    team.coach = team_member
-                if team_member.iscontactFace:
-                    team.contactPerson = team_member
-
+                members.append(team_member)
+                # team.teamMembers.add(team_member)
+                # if team_member.iscoach:
+                #     team.coach = team_member
+                # if team_member.iscontactFace:
+                #     team.contactPerson = team_member
+            for member in members:
+                if member.iscoach:
+                    team.coach = member
+                if member.iscontactFace:
+                    team.contactPerson = member
             try:
                 str(team.coach)
             except:
-                team.coach = team_member
+                team.coach = member
             try:
                 str(team.contactPerson)
             except:
-                team.contactPerson = team_member
-            team.my_event = obj
+                team.contactPerson = member
+
+            team.save()
+            for i in members:
+                team.teamMembers.add(i)
             team.save()
             send(team.contactPerson.emailadress, obj, 'находится в ожидании')
 
