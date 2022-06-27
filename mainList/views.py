@@ -1,10 +1,8 @@
-from datetime import datetime
-
-from django.db.models import QuerySet
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from .models import *
+from django.forms import modelformset_factory
+from django.shortcuts import redirect
 from .forms import *
+from .signals import send
+
 
 def index(request):
     data = Event.objects.all()
@@ -18,6 +16,7 @@ def index(request):
         render(request, 'mainList/index.html', context=context)
     )
 
+
 def finished(request):
     data = Event.objects.all()
     viw = ['inArchive', 'endCompetition', 'processingMaterials']
@@ -30,6 +29,7 @@ def finished(request):
         render(request, 'mainList/finished.html', context=context)
     )
 
+
 def show_event(request, event_id):
     obj = Event.objects.get(pk=event_id)
 
@@ -40,58 +40,91 @@ def show_event(request, event_id):
         render(request, 'mainList/show_event.html', context=context)
     )
 
-class Lamoda():
-    img = [
-        # 'name.png',
-        # 'emailadress.png',
-        # 'phonenumber.png',
-        # 'organization.png',
-        # 'university_faculty.png',
-        # 'university_course.png',
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-    ]
-    count = 0
-
-    def get_me(self):
-        ob = self.img[self.count]
-        self.count += 1
-        return ob
 
 def registrationForm(request, event_id):
-    if request.method == "POST":
-        form = registrationsForm(request.POST)
-        if form.is_valid():
-            form.save()
-            human = Participant(form.fields)
-            try:
-                team = Team.objects.create(pk=(Team.objects.order_by("pk").last().id+1), name=form.fields['name'],
-                                           coach=Participant(form.fields),
-                                       contactPerson=Participant(form.fields))
-            except:
-                team = Team.objects.create(id=int(1), name=form.fields['name'], coach=Participant(form.fields),
-                                       contactPerson=form.fields['id'])
-            team.teamMembers.add(Participant(form.fields))
-
-            team.save()
-            return redirect('home')
-    else:
-        form = registrationsForm()
-
     obj = Event.objects.get(pk=event_id)
-
-
+    if request.method == "POST":
+        form = personalForm(request.POST)
+        if form.is_valid():
+            lastuser = form.save(commit=False)
+            lastuser.save()
+            team = Team(name=str(lastuser), contactPerson=lastuser, coach=lastuser)
+            team.my_event = obj
+            team.save()
+            team.teamMembers.add(lastuser)
+            team.save()
+            send(team.contactPerson.emailadress, obj, 'находится в ожидании')
+        return redirect('home')
+    else:
+        form = personalForm()
 
     context = {
         'form': form,
         'obj': obj,
-
     }
 
     return (
         render(request, 'mainList/registrationsForm.html', context=context)
+    )
+
+
+def registrationEnd(request, event_id):
+    obj = Event.objects.get(pk=event_id)
+    obj2 = Team()
+    if request.method == "POST":
+        form = registrationsEnd(request.POST)
+        registrationsFormSet = modelformset_factory(Participant, form=registrationsForm, extra=obj.numberofparticipants,
+                                                    max_num=obj.numberofparticipants)
+        qs = Participant.objects.all().filter(name='')
+        formset = registrationsFormSet(request.POST or None, queryset=qs)
+
+        if form.is_valid() and formset.is_valid():
+            team = form.save(commit=False)
+            team.my_event = obj
+            # team.save()
+            members = []
+            for member_form in formset:
+                team_member = member_form.save()
+                members.append(team_member)
+                # team.teamMembers.add(team_member)
+                # if team_member.iscoach:
+                #     team.coach = team_member
+                # if team_member.iscontactFace:
+                #     team.contactPerson = team_member
+            for member in members:
+                if member.iscoach:
+                    team.coach = member
+                if member.iscontactFace:
+                    team.contactPerson = member
+            try:
+                str(team.coach)
+            except:
+                team.coach = member
+            try:
+                str(team.contactPerson)
+            except:
+                team.contactPerson = member
+
+            team.save()
+            for i in members:
+                team.teamMembers.add(i)
+            team.save()
+            send(team.contactPerson.emailadress, obj, 'находится в ожидании')
+
+            return redirect('home')
+    else:
+        form = registrationsEnd()
+        registrationsFormSet = modelformset_factory(Participant, form=registrationsForm, extra=obj.numberofparticipants,
+                                                    max_num=obj.numberofparticipants)
+        qs = Participant.objects.all().filter(name='')
+        formset = registrationsFormSet(request.POST or None, queryset=qs)
+
+    context = {
+        'form': form,
+        'formset': formset,
+        'obj': obj,
+    }
+
+    return (
+        render(request, 'mainList/registrationEnd.html', context=context)
     )

@@ -1,0 +1,30 @@
+{% extends 'mainList/base.html' %}
+{% load static %}
+{% block main %}
+  <main class="main">
+        <div class="main-wrapper registr">
+         <h1 class="main-title">Регистрация</h1>
+                <div class="main-content">
+                            {% for f in formes %}
+                                <form action="{{ obj.get_final_registration_url }}" method="post" >
+                                    {% csrf_token %}
+                                    <span>{{ form.non_field_errors }}</span>
+                                    <hr>
+                                        {% for frm in f %}
+                                            <div class="reg_form__item">
+                                                <img class="img_input" src="{% static 'mainList/images/mini_logo.png' %}" alt="Картинка" />
+                                                    {{frm}}
+                                            </div>
+                                        {% endfor %}
+                                    <button class="button" name="{{con.cPP}}" type="submit" >
+                                        Сохранить
+                                    </button>
+                                </form>
+                            {% endfor %}
+                    <button class="button" type="submit" >
+                        Отправить заявку на участие
+                    </button>
+                </div>
+        </div>
+  </main>
+{% endblock %}
