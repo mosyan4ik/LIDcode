@@ -1,5 +1,5 @@
 from django.forms import modelformset_factory
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from .forms import *
 from .signals import send
 
@@ -86,11 +86,6 @@ def registrationEnd(request, event_id):
             for member_form in formset:
                 team_member = member_form.save()
                 members.append(team_member)
-                # team.teamMembers.add(team_member)
-                # if team_member.iscoach:
-                #     team.coach = team_member
-                # if team_member.iscontactFace:
-                #     team.contactPerson = team_member
             for member in members:
                 if member.iscoach:
                     team.coach = member

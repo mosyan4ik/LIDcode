@@ -8,7 +8,6 @@ class EventAdmin(admin.ModelAdmin):
     list_display_links = ('name',)
     search_fields = ('name',)
     filter_horizontal = ['sponsors', 'organizers', 'participants']
-    # list_editable = ('name',)
     list_filter = ('status', 'timeNow')
     save_on_top = True
 

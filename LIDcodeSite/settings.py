@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 
-import secret
+from .secret import *
 import sys
 from pathlib import Path
 
@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = secret.get_secret()
+SECRET_KEY = get_secret()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -89,17 +89,6 @@ DATABASES = {
         'PORT': '5432'
     }
 }
-
-# if 'test' in sys.argv:
-#     DATABASES['default'] = {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'test_LIDcodeDB',
-#         'USER': 'LIDcode',
-#         'PASSWORD': 'LIDcode',
-#         'HOST': 'localhost',
-#         'PORT': '5432'
-#     }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

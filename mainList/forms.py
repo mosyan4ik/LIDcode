@@ -1,6 +1,4 @@
 from django import forms
-from django.forms import formset_factory
-from django.shortcuts import render
 
 from .models import *
 
@@ -41,11 +39,8 @@ class registrationsEnd(forms.ModelForm):
 
     class Meta:
         model = Team
-        fields = ['name']#'__all__'
+        fields = ['name']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'input_text', 'type': 'text', 'placeholder': 'Название команды'}),
-            # 'teamMembers': forms.SelectMultiple(attrs={}),
-            # 'coach': forms.RadioSelect(attrs={}),
-            # 'contactPerson': forms.RadioSelect(attrs={})
         }
 

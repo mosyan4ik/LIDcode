@@ -10,7 +10,6 @@ from selenium import webdriver
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 import unittest
-from mainList.models import *
 
 driver = webdriver.Chrome(
     executable_path=r'G:\py_Django_proj\courseWork\LIDcodeSite\mainList\chromedriver\chromedriver.exe')
