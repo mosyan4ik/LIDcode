@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dce77ca8-b68c-48f0-bc25-2ffca424eb44" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/LIDcode_backend/coreApp/uploadFileClass.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LIDcode_backend/LIDcode_backend/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/LIDcode_backend/LIDcode_backend/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LIDcode_backend/LIDcode_backend/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/LIDcode_backend/LIDcode_backend/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LIDcode_backend/coreApp/businessLogic.py" beforeDir="false" afterPath="$PROJECT_DIR$/LIDcode_backend/coreApp/businessLogic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LIDcode_backend/coreApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/LIDcode_backend/coreApp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LIDcode_backend/coreApp/serializers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LIDcode_backend/coreApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/LIDcode_backend/coreApp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LIDcode_backend/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/LIDcode_backend/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Programs/Python/Python311/Lib/_strptime.py" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2NNjsW4aPTlKcTFUE4cDYu9SAA1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;global__update__v__2&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/py_Django_proj/LIDcode 2.0 - graduate work&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\py_Django_proj\LIDcode 2.0 - graduate work\LIDcode_backend\coreApp" />
+      <recent name="G:\py_Django_proj\LIDcode 2.0 - graduate work\LIDcode_backend" />
+      <recent name="G:\py_Django_proj\LIDcode 2.0 - graduate work" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Docker.LIDcode_backend/Dockerfile">
+    <configuration name="YDB_ORM" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="LIDcode 2.0 - graduate work" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/LIDcode_backend/coreApp" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LIDcode_backend/coreApp/YDB_ORM.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="YdbOrmClass" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="LIDcode 2.0 - graduate work" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/LIDcode_backend/coreApp" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LIDcode_backend/coreApp/YdbOrmClass.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="LIDcode 2.0 - graduate work" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="models" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="LIDcode 2.0 - graduate work" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/LIDcode_backend/coreApp" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LIDcode_backend/coreApp/models.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="serializers" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="LIDcode 2.0 - graduate work" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/LIDcode_backend/coreApp" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LIDcode_backend/coreApp/serializers.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="LIDcode_backend/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="LIDcode_backend/Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.LIDcode_backend/Dockerfile" />
+        <item itemvalue="Python.YDB_ORM" />
+        <item itemvalue="Python.serializers" />
+        <item itemvalue="Python.YdbOrmClass" />
+        <item itemvalue="Python.models" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dce77ca8-b68c-48f0-bc25-2ffca424eb44" name="Changes" comment="" />
+      <created>1679511641017</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679511641017</updated>
+      <workItem from="1679511642181" duration="8660000" />
+      <workItem from="1679694298988" duration="1271000" />
+      <workItem from="1680004249118" duration="11460000" />
+      <workItem from="1680168304056" duration="9994000" />
+      <workItem from="1680232047738" duration="6911000" />
+      <workItem from="1680332576502" duration="3066000" />
+      <workItem from="1680340869467" duration="13283000" />
+      <workItem from="1680590971354" duration="287000" />
+      <workItem from="1680599996172" duration="34000" />
+      <workItem from="1680678197473" duration="2000" />
+      <workItem from="1680695066592" duration="3000" />
+      <workItem from="1680759679348" duration="2000" />
+      <workItem from="1680762925350" duration="1000" />
+      <workItem from="1680763038106" duration="3000" />
+      <workItem from="1680790999542" duration="2000" />
+      <workItem from="1680925862618" duration="6544000" />
+      <workItem from="1681097550787" duration="41000" />
+      <workItem from="1681673966986" duration="4906000" />
+      <workItem from="1681729458521" duration="4194000" />
+      <workItem from="1681751239745" duration="6581000" />
+      <workItem from="1681801343186" duration="1432000" />
+      <workItem from="1681934826271" duration="803000" />
+      <workItem from="1681935993998" duration="136000" />
+      <workItem from="1682004279177" duration="12000" />
+      <workItem from="1682082473967" duration="4774000" />
+      <workItem from="1682531174675" duration="1663000" />
+      <workItem from="1682791543945" duration="28000" />
+      <workItem from="1682874429134" duration="1340000" />
+      <workItem from="1682887823265" duration="1162000" />
+      <workItem from="1682889006935" duration="2247000" />
+      <workItem from="1683144712526" duration="4393000" />
+      <workItem from="1683197040842" duration="5302000" />
+      <workItem from="1683385909476" duration="4276000" />
+      <workItem from="1683402108071" duration="3179000" />
+      <workItem from="1683582833272" duration="1012000" />
+      <workItem from="1683621786331" duration="1912000" />
+      <workItem from="1683710695161" duration="2096000" />
+      <workItem from="1683732572630" duration="5598000" />
+      <workItem from="1683812701854" duration="1360000" />
+      <workItem from="1683814719092" duration="8493000" />
+      <workItem from="1683823570812" duration="441000" />
+      <workItem from="1683900902100" duration="11997000" />
+      <workItem from="1683993727356" duration="5784000" />
+      <workItem from="1684046406459" duration="1820000" />
+      <workItem from="1684068549706" duration="634000" />
+      <workItem from="1684081284567" duration="595000" />
+      <workItem from="1684095194633" duration="1091000" />
+      <workItem from="1684165206267" duration="5878000" />
+      <workItem from="1684233066458" duration="9793000" />
+      <workItem from="1684260474834" duration="3400000" />
+      <workItem from="1684340162247" duration="11861000" />
+      <workItem from="1684425273903" duration="14365000" />
+      <workItem from="1684484108665" duration="25141000" />
+      <workItem from="1684572368134" duration="19317000" />
+      <workItem from="1684673541469" duration="19715000" />
+      <workItem from="1684754077124" duration="17399000" />
+      <workItem from="1684833848483" duration="16026000" />
+      <workItem from="1684931818934" duration="24000" />
+      <workItem from="1684931906928" duration="18429000" />
+      <workItem from="1684958278874" duration="264000" />
+      <workItem from="1685031550956" duration="17990000" />
+      <workItem from="1685112624042" duration="18885000" />
+      <workItem from="1685136075233" duration="1148000" />
+      <workItem from="1685178254118" duration="16138000" />
+      <workItem from="1685267190088" duration="247000" />
+      <workItem from="1685285376889" duration="918000" />
+      <workItem from="1685303249499" duration="3962000" />
+      <workItem from="1685362836367" duration="6247000" />
+      <workItem from="1685476859940" duration="11000" />
+      <workItem from="1685479102780" duration="1932000" />
+      <workItem from="1685526474792" duration="8472000" />
+      <workItem from="1685666738173" duration="2033000" />
+      <workItem from="1685791017150" duration="12290000" />
+      <workItem from="1685814703684" duration="4736000" />
+      <workItem from="1685830470500" duration="426000" />
+      <workItem from="1685881025412" duration="996000" />
+      <workItem from="1685893478677" duration="3473000" />
+      <workItem from="1685904448597" duration="4206000" />
+      <workItem from="1685973584578" duration="9610000" />
+      <workItem from="1686072956192" duration="100000" />
+      <workItem from="1686155620750" duration="9588000" />
+      <workItem from="1686175146718" duration="85000" />
+      <workItem from="1686222756883" duration="1028000" />
+      <workItem from="1686336037085" duration="846000" />
+      <workItem from="1686396825485" duration="19302000" />
+      <workItem from="1687088415169" duration="35000" />
+      <workItem from="1687096634781" duration="630000" />
+      <workItem from="1687123959895" duration="618000" />
+      <workItem from="1687193121815" duration="2438000" />
+    </task>
+    <task id="LOCAL-00001" summary="The version added work with documentary tables and basic API.">
+      <created>1680926427858</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680926427858</updated>
+    </task>
+    <task id="LOCAL-00002" summary="update settings">
+      <created>1680931327674</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680931327674</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/global_update_v_2" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="The version added work with documentary tables and basic API." />
+    <MESSAGE value="update settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="update settings" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/LIDcode_2_0___graduate_work$serializers.coverage" NAME="serializers Coverage Results" MODIFIED="1684235268184" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LIDcode_backend/coreApp" />
+    <SUITE FILE_PATH="coverage/LIDcode_2_0___graduate_work$models.coverage" NAME="models Coverage Results" MODIFIED="1680233254845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LIDcode_backend/coreApp" />
+    <SUITE FILE_PATH="coverage/LIDcode_2_0___graduate_work$YdbOrmClass.coverage" NAME="YdbOrmClass Coverage Results" MODIFIED="1683737577752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LIDcode_backend/coreApp" />
+    <SUITE FILE_PATH="coverage/LIDcode_2_0___graduate_work$YDB_ORM.coverage" NAME="YDB_ORM Coverage Results" MODIFIED="1684779807353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LIDcode_backend/coreApp" />
+    <SUITE FILE_PATH="coverage/LIDcode_2_0___graduate_work$businessLogic.coverage" NAME="businessLogic Coverage Results" MODIFIED="1680232226146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/LIDcode_backend/coreApp" />
+  </component>
+</project>
